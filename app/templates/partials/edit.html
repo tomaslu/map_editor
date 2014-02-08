@@ -1,0 +1,33 @@
+{% extends "partials/base.html" %}
+
+{% block content %}
+<h2>Editing {% templatetag openvariable%} mapName {% templatetag closevariable %}</h2>
+
+<div class="container">
+
+	<div>
+		<button type="button" class="btn btn-default" ng-click="colorSelected('blue')">Blue</button>
+		<button type="button" class="btn btn-default" ng-click="colorSelected('red')">Red</button>
+		<button type="button" class="btn btn-default" ng-click="colorSelected('green')">Green</button>
+		<button type="button" class="btn btn-default" ng-click="colorSelected('yellow')">Yellow</button>
+		<input type="checkbox" ng-model="smartSelection">Smart selection
+	</div>
+	
+	<div>
+		<h3><span class="label label-default">{% templatetag openvariable%} currentElement {% templatetag closevariable %}</span></h2>
+	</div>
+	
+	<div id="svgMap">
+	</div>
+	
+	<br/>
+	
+	<form role="form" class="form-inline" ng-controller="saveMapController" ng-submit="submit()">
+		<div class="form-group">
+			<label class="sr-only" for="name">Name</label>
+			<input type="text" class="form-control" name="name" ng-model="name" placeholder="Enter new map name" id="name" class="form-control">
+		</div>
+		<button type="submit" class="btn btn-primary">Save</button>
+	</form>
+</div>
+{% endblock %}

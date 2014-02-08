@@ -1,0 +1,38 @@
+<html>
+	<head>
+	<script type="text/javascript" src="/static/lib/jquery/jquery-1.10.2.js"></script>
+	<script>
+		$('document').ready(function(){
+			$("#upload").click(function(){
+				/*
+				var selected_file = $('#input').get(0).files[0];
+				alert(selected_file.name  + ', ' + selected_file.size + ', ' + selected_file.type);
+				*/
+				function FileUpload(file) {
+					  var reader = new FileReader();
+					  var xhr = new XMLHttpRequest();
+					  this.xhr = xhr;
+					  
+					  var self = this;
+					
+					  xhr.open("POST", "/upload_file");
+					  xhr.overrideMimeType('text/plain; charset=x-user-defined-binary');
+					  reader.onload = function(evt) {
+					    xhr.sendAsBinary(evt.target.result);
+					  };
+					  reader.readAsBinaryString(file);
+					}
+				
+				$("#upload").click(function() {
+					fup = FileUpload($('#input').get(0).files[0]);
+				});
+			});
+		});
+	</script>
+	</head>
+	<body>
+		<h1>Testing file upload</h1>
+		<input type="file" id="input">
+		<button id="upload">Upload</button>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+{% extends "partials/base.html" %}
+
+{% block content %}
+	<h1>Upload page</h1>
+	<form role="form" action="/map/map/" enctype="multipart/form-data" method="POST">
+		<div class="form-group">
+			<label class="sr-only" for="fileName">File</label>
+			<input type="file" id="fileName" name="fileName">
+		</div>
+		<div class="form-group">
+			<label class="sr-only" for="mapName">Map name</label>
+			<input id="mapName" type="text" class="form-control" name="mapName" placeholder="Enter map name">
+		</div>
+		<div class="form-group">
+			<select class="form-control" name="mapType">
+				<option value="world">World</option>
+				<option value="continent">Continent</option>
+				<option value="country">Country</option>
+				<option value="state">State</option>
+				<option value="county">County</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<input type="submit" name="submit" value="Upload">
+		</div>
+	</form>
+{% endblock %}

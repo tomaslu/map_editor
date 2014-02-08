@@ -1,0 +1,18 @@
+{% extends "partials/base.html" %}
+
+{% block content %}
+	<h1>List maps</h1>
+	some text
+	<ol class="list-group">
+		<ul class="list-group-item" ng-repeat="map in maps">
+			<a href="/#/edit/{%templatetag openvariable%} map.id {%templatetag closevariable%}">{% templatetag openvariable%} map.name {% templatetag closevariable %}</a>
+			<img src="{% templatetag openvariable%} map.url {% templatetag closevariable %}">
+			<ul ng-repeat="user_map in map.user_maps">
+				{% templatetag openvariable%} user_map.name {% templatetag closevariable %}
+				<a href="{% templatetag openvariable%} user_map.png_url {% templatetag closevariable %}">
+					<img src="{% templatetag openvariable%} user_map.png_thumbnail_url {% templatetag closevariable %}">
+				</a>
+			</ul>
+		</ul>
+	</ol>
+{% endblock %}

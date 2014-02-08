@@ -1,0 +1,52 @@
+<div class="container">      
+      <!-- Static navbar -->
+      <div class="navbar navbar-default" role="navigation">
+      {% if user.is_authenticated %}
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Map Editor</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+	        <li {% ifequal page "home" %}class="active"{% endifequal %}><a href="#/home">Home</a></li>
+            <li {% ifequal page "upload" %}class="active"{% endifequal %}><a href="#/upload">Upload maps</a></li>
+            <li {% ifequal page "list" %}class="active"{% endifequal %}><a href="#/list">List maps</a></li>
+          </ul>  
+		<ul class="nav navbar-nav navbar-right">
+          	<li><a href="#">Hi {{user.username}}</a></li>
+          	<li><a href="/authentication/logout_user">Logout</a></li>
+        </ul>	
+        </div><!--/.nav-collapse -->
+       {% else %}
+       <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Map Editor</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li {% ifequal page "home" %}class="active"{% endifequal %}><a href="#/home">Home</a></li>
+            <li {% ifequal page "gallery" %}class="active"{% endifequal %}><a href="#/gallery">Gallery</a></li>
+            <li {% ifequal page "about" %}class="active"{% endifequal %}><a href="#/about">About</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#/login">Log In</a></li>
+          	<li><a href="#/register">Register</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      {% endif %}
+        
+      </div>
+      
+      {% block content %}
+      {% endblock %}
+</div>

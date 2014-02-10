@@ -25,15 +25,19 @@ python manage.py syncdb
 python manage.py migrate
 </pre>
 
+to create database and run all migrations.
+
 You start Django development server with
 
 <pre>
 python manage.py runserver
 </pre>
 
+After that you can access application on http://localhost:8000.
+
 Examples
 --------
 
-US population by states where states colored in blue are states with population higher then 5,000,000, and states colored with yellow are states that ahve population less then 5,000,000
+US population by states where states colored in blue are states with population higher then 5,000,000, and states colored with yellow are states that have population less then 5,000,000
 
 ![drawing](./examples/us_population.png)

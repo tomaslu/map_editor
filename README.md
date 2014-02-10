@@ -1,10 +1,39 @@
 map_editor
 ==========
 
-This is very early version of map editor. Tool that will allow editing SVG maps and convert them into bitmap format.
+This is very early version of map editor. This tool allows editing of SVG maps based on different criteria.
 
-There will be two types of map coloring:
-* explicit coloring (interactive)
-* implicit coloring (based on some data set)
+This is a web application that allows users (after they create accounts) to have unlimited number of maps, that they can color. User can have unlimited number of colored (user) maps based on one map.
 
-At this moment it is only possible to do first type of coloring, and UI for this is still not complete.
+There are two types of map coloring:
+* explicit coloring - use selects and color interactively
+* implicit coloring - map is colored based on data set (not implemented yet)
+
+Requirements
+------------
+* Django (1.6.2)
+* South (0.8.4)
+* lxml (3.3.0)
+
+Usage
+-----
+
+After you install requirements, do
+
+<pre>
+python manage.py syncdb
+python manage.py migrate
+</pre>
+
+You start Django development server with
+
+<pre>
+python manage.py runserver
+</pre>
+
+Examples
+--------
+
+US population by states where states colored in blue are states with population higher then 5,000,000, and states colored with yellow are states that ahve population less then 5,000,000
+
+![drawing](./examples/us_population.png)

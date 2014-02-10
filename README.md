@@ -15,26 +15,6 @@ Requirements
 * South (0.8.4)
 * lxml (3.3.0)
 
-Usage
------
-
-After you install requirements, do
-
-<pre>
-python manage.py syncdb
-python manage.py migrate
-</pre>
-
-to create database and run all migrations.
-
-You start Django development server with
-
-<pre>
-python manage.py runserver
-</pre>
-
-After that you can access application on http://localhost:8000.
-
 Examples
 --------
 
